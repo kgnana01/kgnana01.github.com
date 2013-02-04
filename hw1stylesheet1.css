@@ -1,0 +1,46 @@
+p, li{
+
+font-family: Cambria, Georgia, serif;
+font-size: 16px;
+color:#000033;
+
+}
+
+h1{
+	font-size: 30px;
+	font-weight: bold;
+	font-family: Cambria, Georgia, serif;
+	color:#000033;
+	
+}
+
+
+#joblist {
+	border-bottom: black;
+	border-left: black;
+	border-right: black;
+	border-top: black;
+	border-width: 5px;
+	border-style: double;
+}
+
+p, h1, img {
+	text-align: center
+}
+
+body {
+	background-color:#DBFFDB;
+}
+
+.headers {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.employers {
+	font-weight: bold;
+	font-style: italic;
+}
+
+
+
