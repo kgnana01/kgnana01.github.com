@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>arrival json</title>
+<script>
+
+	var request1;
+	function init_arrive(){
+		request1 = new XMLHttpRequest ();
+		request1.open("GET"," http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+		request1.send(null);
+		request1.onreadystatechange = parse_arrive;
+	}
+	
+	// stores info you care about from JSON (Platform Key and Timings)
+	arrival = new Array ();
+	
+	function parse_arrive() {
+		pstring = JSON.parse (request1.responseText);
+		
+		for (i = 0; i < pstring.length; i++){
+			Platform = pstring [i];
+			render = Platform ['PlatformKey'] + " " + Platform ['Time'] + '<br/>';
+			
+			arrival[i] = Platform;
+			console.log(arrival[i].Time);
+			console.log (arrival[i].PlatformKey);
+		}
+		
+		output();
+	}
+	
+	function output(){
+		var l = document.getElementById("list");
+		l.innerHTML ="";
+		for (i = 0; i < arrival.length; i++){
+			document.getElementById("list").innerHTML+= render;
+		}
+		i=0;
+	}
+	
+		
+	
+</script>
+</head>
+<body onload = "init_arrive();">
+<div id="list">
+
+
+</div>
+</body>
+
+</html>
+

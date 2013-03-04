@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>carmen and waldo</title>
+<script>
+
+	var request2;
+	function init_where (){
+		request2 = new XMLHttpRequest ();
+		request2.open("GET","http://messagehub.herokuapp.com/a3.json", true);
+		request2.send(null);
+		request2.onreadystatechange = parse_where;
+	}
+	
+	function parse_where() {
+		pstring = JSON.parse (request2.responseText);
+		
+		for (i = 0; i < pstring.length; i++){
+			Find = pstring [i];
+			render = Find ['name']+ "<br/>" + Find['note'] + "<br/><br/>";
+			
+			if (Find ['name'] == "Waldo"){
+			
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(Find ['loc']['latitude'], Find ['loc']['longitude']),
+					title:"Found Waldo!",
+					icon: waldo
+					})
+					marker.setMap(map);
+				
+				// place corresponding info window for each marker
+				var infowindow = new google.maps.InfoWindow({
+					content: render
+				})
+			}
+			if (Find ['name'] == "Carmen Sandiego"){
+			
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(Find ['loc']['latitude'], Find ['loc']['longitude']),
+					title:"Found Carmen Sandiego!",
+					icon: carmen
+					})
+					marker.setMap(map);
+				
+				// place corresponding info window for each marker
+				var infowindow = new google.maps.InfoWindow({
+					content: render
+				})
+			}		
+			
+		}
+		
+	}
+	
+	
+
+// keep getting undefined for 'note' option
+// exceptions? like what to do if only get waldo or only get carmen?
+
+</script>
+	
+	
+</body>
+
+</html>
+
+
+
+</head>
+<body onload = "init_where();">
+<div id="list">
+
+
+</div>
+</body>
+
+</html>
+
