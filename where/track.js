@@ -277,16 +277,12 @@
 					position: new google.maps.LatLng(lat,lng),
 					title:"You are here!"
 				});
-				marker.setMap(map);
+				yourlocation.setMap(map);
 				
 				google.maps.event.addListener(yourlocation, 'click', function() {
 					yourlocwindow.open(map,yourlocation);
 				});
-			
-			});
-			
-				
-            
+			});		
         }
         else {
 			console.log("3");
