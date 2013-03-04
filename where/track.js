@@ -265,7 +265,7 @@
                 lat = position.coords.latitude;
 				console.log(lat);
                 lng = position.coords.longitude;
-				console.log(lon);
+				console.log(lng);
 				
 				var locationstring = '<p>You are located here: </p>' + lat + ", " + lng + "<br/>"; 
 				
