@@ -263,13 +263,9 @@
             navigator.geolocation.getCurrentPosition(function(position) {
 
                 lat = position.coords.latitude;
-				console.log("lat");
+				console.log(lat);
                 lng = position.coords.longitude;
-				
-				console.log("test");
-				});
-			
-				console.log("beforemarker");
+				console.log(lon);
 				
 				var locationstring = '<p>You are located here: </p>' + lat + ", " + lng + "<br/>"; 
 				
@@ -286,6 +282,10 @@
 				google.maps.event.addListener(marker, 'click', function() {
 					yourlocwindow.open(map,marker);
 				});
+			
+			});
+			
+				
             
         }
         else {
