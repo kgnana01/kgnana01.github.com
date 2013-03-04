@@ -273,14 +273,14 @@
 					content: locationstring
 				});
 				
-                var marker = new google.maps.Marker({
+                var yourlocation = new google.maps.Marker({
 					position: new google.maps.LatLng(lat,lng),
 					title:"You are here!"
 				});
 				marker.setMap(map);
 				
-				google.maps.event.addListener(marker, 'click', function() {
-					yourlocwindow.open(map,marker);
+				google.maps.event.addListener(yourlocation, 'click', function() {
+					yourlocwindow.open(map,yourlocation);
 				});
 			
 			});
